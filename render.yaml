@@ -4,7 +4,7 @@ services:
     name: clinic-booking
     runtime: node
     plan: free
-    region: frankfurt
+    region: ohio
     buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /healthz
