@@ -1,0 +1,17 @@
+# Render Blueprint: one free web service. The database is Neon (free, doesn't expire).
+services:
+  - type: web
+    name: clinic-booking
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: API_KEY
+        generateValue: true   # Render creates a random key; copy it from the Environment tab
+      - key: DATABASE_URL
+        sync: false           # paste your Neon connection string when prompted
+      - key: NODE_VERSION
+        value: "22"
